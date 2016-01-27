@@ -24,8 +24,8 @@
                    {% for cosmo in cosmologies %}
                        <td>
                            {% if snapshot[cosmo] is defined %}
-                               {% for resolution,id in snapshot[cosmo] %}
-                               <a href="{{ url('snapshots', {"id": id}) }}" class="startSimu">{{ resolution }}<sup>3</sup>&nbsp;particles</a><br/>
+                               {% for resolution,simulation in snapshot[cosmo] %}
+                               <a href="{{ url('snapshots', {"id": simulation.id}) }}" class="startSimu">{{ simulation.mass }} ({{ resolution }}<sup>3</sup>&nbsp;parts)</a><br/>
                                {% endfor %}
                            {% else %}
                                &nbsp;

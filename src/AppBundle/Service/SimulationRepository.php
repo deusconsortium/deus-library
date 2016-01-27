@@ -43,6 +43,7 @@ class SimulationRepository
         $rows = $this->con->fetchAll(
             "SELECT DISTINCT
                   s.id simulation,
+                  s.particleMass mass,
                   b.value boxlen,
                   c.name cosmology,
                   r.value resolution
@@ -65,7 +66,10 @@ class SimulationRepository
         );
 
         foreach($rows as $oneRow) {
-            $res[$oneRow['boxlen']][$oneRow['cosmology']][$oneRow['resolution']] = $oneRow['simulation'];
+            $res[$oneRow['boxlen']][$oneRow['cosmology']][$oneRow['resolution']] = [
+                'id' => $oneRow['simulation'],
+                'mass' => $oneRow['mass'] ? sprintf("%.1E",$oneRow['mass']).'Msun/h' : ''
+            ];
         }
 
         return $res;
@@ -80,6 +84,7 @@ class SimulationRepository
         $rows = $this->con->fetchAll(
             "SELECT DISTINCT
                   s.id simulation,
+                  s.particleMass mass,
                   b.value boxlen,
                   c.name cosmology,
                   r.value resolution
@@ -102,7 +107,10 @@ class SimulationRepository
         );
 
         foreach($rows as $oneRow) {
-            $res[$oneRow['boxlen']][$oneRow['cosmology']][$oneRow['resolution']] = $oneRow['simulation'];
+            $res[$oneRow['boxlen']][$oneRow['cosmology']][$oneRow['resolution']] =  [
+                'id' => $oneRow['simulation'],
+                'mass' => $oneRow['mass'] ? sprintf("%.1E",$oneRow['mass']).'Msun/h' : ''
+            ];
         }
 
         return $res;
