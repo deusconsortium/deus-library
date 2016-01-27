@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+      <div id="layout">
+
+<p>Here a small introduction about the data + schema to show difference between snapshots/Comoving Space and cones/Redshift Space</p>
+
+          <table width="100%">
+              <tr>
+                  <td><a href="{{ url("cone") }}"><img src="http://www.deus-consortium.org/wp-content/uploads/2012/03/FullUniverse_Cone_Piece_web3-1024x872.jpg" width="250"/></a></td>
+                  <td><a href="{{ url("snapshot") }}"><img src="http://www.deus-consortium.org/wp-content/gallery/fur-box-zoom/cube-5000-halo2.fof.jpg" width="250"/></a></td>
+              </tr>
+              <tr>
+                  <td><a href="{{ url("cone") }}">Redshift Space</a></td>
+                  <td><a href="{{ url("snapshot") }}">Comoving Space</a></td>
+              </tr>
+          </table>
+
+
+      </div>
+
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

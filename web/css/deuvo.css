@@ -1,0 +1,218 @@
+.queryTable th{
+	padding: 2px;
+	}
+	
+.queryTable tr,td{
+	padding-left: 6px;
+	padding-right:6px;
+	border-width:0px;
+	text-align:center
+	}
+
+.queryTable{
+	padding: 10px;
+	border-width:0px;
+	font-size:1em
+	}
+	
+	
+.parameterSettingTable td{
+	text-align:left;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:0.8em;
+	cursor:help
+	}
+	
+#matchingProducts td{
+	padding-left:10px;
+	padding-right:10px;
+	}
+	
+#productsPager{
+	text-align:center;
+}
+
+
+#generateParticlesFile{
+	text-align:center;
+}
+
+button {
+	
+    width:auto;
+    overflow:visible;
+    padding:4px 10px 3px 7px; /* IE6 */
+	display:inline;
+   
+    margin:0 7px 0 0;
+    background-color:#f5f5f5;
+    border:1px solid #dedede;
+    border-top:1px solid #eee;
+    border-left:1px solid #eee;
+
+    
+    font-size:100%;
+    line-height:130%;
+    text-decoration:none;
+    /*font-weight:bold;*/
+    color:#000000;
+    cursor:pointer;
+  
+}
+
+#deuvoHubStatusIcon{
+	  cursor:pointer;
+}
+
+.center{
+	text-align:center;
+}
+
+fieldset { padding:0; border:0; margin-top:25px; }
+/*label, input { display:block; }*/
+input.text { margin-bottom:12px; width:95%; padding: .4em; }
+
+.deuvo_doc{
+    font-size:1.1em;
+    padding-left:30px;
+    padding-right:30px;
+    text-align:justify;
+    font-family: 'Arial', serif;
+    }
+    
+.deuvo_doc p{
+    margin: 10px;    
+    }    
+
+.deuvo_doc p.summary { text-align: right; }  
+    .deuvo_doc p.summary a{ text-align: right;  color: #FFA300;   font-style: italic;    }  
+    
+.deuvo_doc ol{
+    margin: 10px 30px;
+    font-weight: bold;
+    }       
+    
+.deuvo_doc ul{
+    margin: 10px 30px;
+    font-weight: normal;
+    }       
+    
+.deuvo_doc p.img{    
+    text-align: center;
+    font-size:0.8em;
+    font-style: italic;
+}
+    
+.deuvo_doc img{    
+    border: 1px dotted #5B5B7D;
+    margin: 0 auto;
+}        
+    
+.deuvo_credits{
+    font-size:1em;
+    padding-left:30px;
+    padding-right:30px;
+    margin-bottom:15px;
+    text-align:justify;
+    /*font-family: Helvetica,Verdana,Arial,SunSans-Regular,Sans-Serif;*/
+    font-family: 'Arial', serif;
+}
+
+.logos_partners{
+    margin-top:25px;
+    margin-bottom:25px;
+    text-align:center;
+}
+.logos_partners img{
+    margin:17px;
+}
+
+#simulationsTable th {
+    background-color: #ddf1ff;
+    font-size: 0.9em;
+}
+#simulationsTable td {
+    border: 1px solid black;
+    font-size: 0.75em;
+}
+
+#propertiesRangeQueryTable tr.mandatory {
+    font-weight: bold;
+}
+
+#propertiesRangeQueryTable tr.secondary {
+    color: #999999;
+}
+
+#propertiesRangeQueryTable tr.addBorder {
+    border-top: 1px solid  #C1DAD7;
+}
+
+#propertiesRangeQueryTable tr.addBorder td {
+    padding-top: 5px;
+}
+
+
+#objectList {   margin: 20px; }
+    #objectList label {   font-weight: bold; }
+
+.soon {
+    color: #999;
+}
+
+.download_bloc {    
+    background-color: #ddf1ff;
+    width: 500px;    
+    padding: 10px;
+    margin: 15px auto;
+}
+
+.exp {
+    
+}
+
+h4 {
+    margin-bottom:3px;
+    margin-top:10px;
+    color:#5b5b7d;
+    font-size:1.1em;
+}
+
+select{
+	color:#363636
+}
+
+html{
+	font-family: 'Arial', sans-serif;
+	color:#474747;
+}
+
+#header #logo {
+    background-position: 20px 0;
+    background-repeat: no-repeat;
+    border: medium none;
+    display: block;
+    height: 80px;
+    margin: 10px 10px 0 0;
+    text-indent: -9999px;
+    width: 300px;    
+}
+
+#header h1 {
+    margin: 5px 0;
+}
+
+#header .titre {
+    position: absolute;
+    right: 0px;
+    top: 27px;
+    color: white;
+    font-size: 35px;
+}
+
+#logo {    
+    background-image: url("http://deus.obspm.fr/wp-content/uploads/2010/09/logo.png");
+}
