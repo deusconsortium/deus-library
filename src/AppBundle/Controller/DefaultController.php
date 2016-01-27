@@ -65,6 +65,21 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/cones/{id}", name="cones")
+     */
+    public function conesAction(Request $request, $id)
+    {
+        $SimulationRepository = $this->get("simulation_repository");
+        $snapshots = $SimulationRepository->getSimulationCones($id);
+        $simulation = $SimulationRepository->getSimulationInfos($id);
+
+        return $this->render('default/cones.html.twig', array(
+            'snapshots' => $snapshots,
+            'simulation' => $simulation
+        ));
+    }
+
+    /**
      * @Route("/objects/{id}", name="objects")
      */
     public function objectsAction(Request $request, $id)

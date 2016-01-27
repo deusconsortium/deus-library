@@ -222,6 +222,7 @@ class SimulationRepository
 
         foreach($rows as $oneRow) {
             $res[$oneRow['id']] = $oneRow;
+            $res[$oneRow['id']]['formattedSize'] = SimulationRepository::formatSize($res[$oneRow['id']]['size']);
         }
 
         return $res;
@@ -259,17 +260,79 @@ class SimulationRepository
         $object['more'] = $object['nbFiles'] > $end;
 
         for($i=$start; $i<$end; $i++) {
-            if(!$object['filePattern']) {
-                $object['filePattern'] = "unknown_?????";
+            if($object['filePattern']) {
+                $file = str_replace('?????',str_pad($i,5,'0',STR_PAD_LEFT),$object['filePattern']);
+                $path = $object['path'];
+                if("/" == $path{0}) {
+                    $path =substr($path,1);
+                }
+                $res[] = [
+                    'url' => $path.$object['localPath'].'/'.$file,
+                    'name' => $file
+                ];
             }
-            $file = str_replace('?????',str_pad($i,5,'0',STR_PAD_LEFT),$object['filePattern']);
-
-            $res[] = [
-                'url' => $object['path'].$object['localPath'].'/'.$file,
-                'name' => $file
-            ];
+            else {
+                $res[] = [
+                    'url' => "",
+                    'name' => "unknown_".str_pad($i,5,'0',STR_PAD_LEFT)
+                ];
+            }
         }
 
         return [$object, $res];
+    }
+
+    public static function formatSize($size)
+    {
+        if($size < 1024) {
+            $unit = 'Ko';
+        }
+        else {
+            $size /= 1024;
+            if($size < 1024) {
+                $unit = 'Mo';
+            }
+            else {
+                $size /= 1024;
+                if($size < 1024) {
+                    $unit = 'Go';
+                }
+                else {
+                    $size /= 1024;
+                    $unit = 'To';
+                }
+            }
+        }
+        return number_format($size, 2).' '.$unit;
+    }
+
+    public function getSimulationCones($id)
+    {
+        $res = [];
+        $rows = $this->con->fetchAll(
+            "SELECT DISTINCT
+                  g.id,
+                  g.formattedZ
+            FROM
+                 ObjectGroup og
+                 INNER JOIN Geometry g ON og.Geometry_id = g.id
+                 INNER JOIN Simulation s ON g.Simulation_id = s.id
+            WHERE
+                 g.GeometryType_id = 'cone'
+                 AND og.public = 1
+                 AND s.public = 1
+                 AND s.id = :id
+            ORDER BY
+                 g.Z ASC
+                 "
+            ,
+            ["id" => $id]
+        );
+
+        foreach($rows as $oneRow) {
+            $res[$oneRow['id']] = SimulationRepository::formatZ($oneRow['formattedZ']);
+        }
+
+        return $res;
     }
 }

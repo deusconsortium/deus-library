@@ -24,6 +24,9 @@ jQuery(document).ready(function() {
         })
         .done(function(data){
             jQuery("#snapshots").html(data);
+            if(jQuery(".startSnap").length == 1) {
+                jQuery(".startSnap").click();
+            }
         })
         ;
     });
@@ -36,6 +39,9 @@ jQuery(document).ready(function() {
             })
             .done(function(data){
                 jQuery("#objects").html(data);
+                if(jQuery(".startObject").length == 1) {
+                    jQuery(".startObject").click();
+                }
             });
         jQuery(".startSnap")
             .css('font-weight', 'normal')

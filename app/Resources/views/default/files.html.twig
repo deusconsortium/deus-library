@@ -2,7 +2,12 @@
 <h3>4. Download</h3>
 {% endif %}
 {% for file in files %}
-    <a class="startFile" href="{{ file.url }}">{{ file.name }}</a><br/>
+    {% if file.url %}
+        <a class="startFile" href="{{ file.url }}">{{ file.name }}</a>
+    {% else %}
+        {{ file.name }}
+    {% endif %}
+    <br/>
 {% endfor %}
 {% if object.more %}
     <div id="more_files"><a href="{{ url('files', {"id": object.id, "page": page + 1}) }}">More files...</a></div>
