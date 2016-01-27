@@ -1,0 +1,36 @@
+<h3>2. Click to select your snapshot</h3>
+<table class="queryTable">
+    <tr id="matchingSimulationsDiv" style="">
+        <td style="vertical-align:top;text-align:left">
+            <div>
+                <h4>Available snapshots</h4>
+                {% for id,Z in snapshots %}
+                    <a class="startSnap" href="{{ url("objects", {"id": id}) }}">Z={{ Z }}</a><br/>
+                {% endfor %}
+            </div>
+        </td>
+        <td style="vertical-align:top;text-align:left">
+            <h4>Simulation parameter settings</h4>
+            <table width="350px" class="parameterSettingTable" id="simulationParameterSettings">
+                <colgroup>
+                    <col width="190px">
+                    <col width="100px">
+                </colgroup>
+                <tbody>
+                {% for label,value in simulation %}
+                <tr {{ cycle(['style="background:none repeat scroll 0 0 #ddf1ff"', ''], loop.index0)|raw }}>
+                    <td>
+                        <div>{{ label }}</div>
+                    </td>
+                    <td>{{ value }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<div id="objects">
+
+</div>

@@ -50,6 +50,51 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/snapshots/{id}", name="snapshots")
+     */
+    public function snapshotsAction(Request $request, $id)
+    {
+        $SimulationRepository = $this->get("simulation_repository");
+        $snapshots = $SimulationRepository->getSimulationSnapshots($id);
+        $simulation = $SimulationRepository->getSimulationInfos($id);
+
+        return $this->render('default/snapshots.html.twig', array(
+            'snapshots' => $snapshots,
+            'simulation' => $simulation
+        ));
+    }
+
+    /**
+     * @Route("/objects/{id}", name="objects")
+     */
+    public function objectsAction(Request $request, $id)
+    {
+        $SimulationRepository = $this->get("simulation_repository");
+        $objects = $SimulationRepository->getGeometryObjects($id);
+
+        return $this->render('default/objects.html.twig', array(
+            'objects' => $objects
+        ));
+    }
+
+    /**
+     * @Route("/files/{id}", name="files")
+     */
+    public function filesAction(Request $request, $id)
+    {
+        $page =$request->get('page',1);
+
+        $SimulationRepository = $this->get("simulation_repository");
+        list($object, $files) = $SimulationRepository->getObjectFiles($id, $page);
+
+        return $this->render('default/files.html.twig', array(
+            'files' => $files,
+            'page' => $page,
+            'object' => $object
+        ));
+    }
+
+    /**
      * @Route("/cone", name="cone")
      */
     public function coneAction(Request $request)

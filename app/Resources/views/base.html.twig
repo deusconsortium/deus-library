@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css"
           href="http://www.deus-consortium.org/wp-content/themes/complexity/layout/css/style7.css?ts=<?=time();?>"/>
 
-    <link type="text/css" href="{{ asset("css/deuvo.css") }}" rel="Stylesheet"/>
+    <link type="text/css" href="{{ asset("css/deus-library.css") }}" rel="Stylesheet"/>
 
     <!-- Wordpress Header stuff -->
     <link rel="alternate" type="application/rss+xml"
@@ -146,6 +146,10 @@
             return '<a href="" title="" class="ie6"><img src="http://www.deus-consortium.org/wp-content/themes/complexity/layout/images/transparent.png" alt="" class="ie6" /></a>';
         }
     </script>
+
+
+    <script type="text/javascript"
+            src="{{ asset("js/deus-library.js") }}"></script>
 
     <!-- Custom CSS -->
     <style type="text/css">
@@ -394,6 +398,11 @@
 
                     <h2 class="page-title">{{ block('title') }}</h2>
 
+                    <div id="waiting" style="display: none">
+                        <div style="text-align: center; width: 100%; padding: 30px;">
+                            <img src="{{ asset("images/loading.gif") }}" alt="loading"/>
+                        </div>
+                    </div>
                     {% block content %}
                     {% endblock %}
 

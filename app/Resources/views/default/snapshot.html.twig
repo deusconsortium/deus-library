@@ -25,7 +25,7 @@
                        <td>
                            {% if snapshot[cosmo] is defined %}
                                {% for resolution,id in snapshot[cosmo] %}
-                               <a href="{{ id }}" class="startSimu">{{ resolution }}<sup>3</sup>&nbsp;particles</a><br/>
+                               <a href="{{ url('snapshots', {"id": id}) }}" class="startSimu">{{ resolution }}<sup>3</sup>&nbsp;particles</a><br/>
                                {% endfor %}
                            {% else %}
                                &nbsp;
@@ -36,26 +36,11 @@
                 {% endfor %}
             </table>
 
-            <div id="pleaseClick" class="download_bloc">
-               <em>To get you data, please first select the simulation your are interested in<br/>by clicking on it in the above table </em>
+            <div id="snapshots">
+                <div class="download_bloc">
+                    <em>To get you data, please first select the simulation your are interested in<br/>by clicking on it in the above table </em>
+                </div>
             </div>
-            <table class="queryTable">
-               <tr id="matchingSimulationsDiv" style="display:none">
-                  <td style="vertical-align:top;text-align:left">
-                     <div >
-                        <h3>Available snapshots</h3>
-                        <select id="matchingSimulations" name="matchingSimulations" style="width:300px;" size="10"></select>
-                     </div>
-                  </td>
-                  <td>
-                     <h3>Simulation parameter settings</h3>
-                     <table id="simulationParameterSettings" class="parameterSettingTable" width="350px">
-                        <col width="190px">
-                        <col width="100px">
-                     </table>
-                  </td>
-               </tr>
-            </table>
 
          </div>
 
