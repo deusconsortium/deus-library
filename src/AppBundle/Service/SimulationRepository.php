@@ -267,25 +267,43 @@ class SimulationRepository
 
         $object['more'] = $object['nbFiles'] > $end;
 
-        for($i=$start; $i<$end; $i++) {
-            if($object['filePattern']) {
-                $file = str_replace('?????',str_pad($i,5,'0',STR_PAD_LEFT),$object['filePattern']);
-                $path = $object['path'];
-                if("/" == $path{0}) {
-                    $path =substr($path,1);
-                }
+        $path = $object['path'];
+        if("/" == $path{0}) {
+            $path =substr($path,1);
+        }
+
+        if($object['filePattern'] && preg_match("/\((.*)\)/", $object['filePattern'], $match)) {
+            $pattern = '('.$match[1].')';
+
+            $nbDigit = 5;
+            if(preg_match("/\{([0-9]+)\}/", $object['filePattern'], $match)) {
+                $nbDigit = $match[1];
+            }
+
+            for($i=$start; $i<$end; $i++) {
+                $formattedNumber = str_pad($i,$nbDigit,'0',STR_PAD_LEFT);
+                $file = stripslashes(substr(str_replace($pattern,$formattedNumber,$object['filePattern']),1,-1));
+
                 $res[] = [
                     'url' => $path.$object['localPath'].'/'.$file,
                     'name' => $file
                 ];
             }
-            else {
-                $res[] = [
-                    'url' => "",
-                    'name' => "unknown_".str_pad($i,5,'0',STR_PAD_LEFT)
-                ];
-            }
         }
+        elseif($object['filePattern'] && 1 == $object['nbFiles']) {
+            $file = $object['filePattern'];
+            $res[] = [
+                'url' => $path.$object['localPath'].'/'.$file,
+                'name' => $file
+            ];
+        }
+        else {
+            $res[] = [
+                'url' => "",
+                'name' => "File not found"
+            ];
+        }
+
 
         return [$object, $res];
     }
