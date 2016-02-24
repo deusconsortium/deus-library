@@ -267,10 +267,7 @@ class SimulationRepository
 
         $object['more'] = $object['nbFiles'] > $end;
 
-        $path = $object['path'];
-        if("/" == $path{0}) {
-            $path =substr($path,1);
-        }
+        $path = trim($object['path'],'/');
 
         if($object['filePattern'] && preg_match("/\((.*)\)/", $object['filePattern'], $match)) {
             $pattern = '('.$match[1].')';
@@ -280,12 +277,23 @@ class SimulationRepository
                 $nbDigit = $match[1];
             }
 
+            $filePerGroup = 1;
+            if($object['nbGroups'] > 0) {
+                $filePerGroup = $object['nbFiles'] / $object['nbGroups'];
+            }
+
             for($i=$start; $i<$end; $i++) {
                 $formattedNumber = str_pad($i,$nbDigit,'0',STR_PAD_LEFT);
-                $file = stripslashes(substr(str_replace($pattern,$formattedNumber,$object['filePattern']),1,-1));
+                $file = stripslashes(trim(str_replace($pattern,$formattedNumber,$object['filePattern']),'/'));
+
+                if($object['nbGroups'] > 0) {
+                    $group = 1 + floor($i / $filePerGroup);
+                    $group = str_pad($group,5,'0',STR_PAD_LEFT);
+                    $file = 'group_'.$group.'/'.$file;
+                }
 
                 $res[] = [
-                    'url' => $path.$object['localPath'].'/'.$file,
+                    'url' => $path.'/'.trim($object['localPath'],'/').'/'.$file,
                     'name' => $file
                 ];
             }
