@@ -284,7 +284,7 @@ class SimulationRepository
 
             for($i=$start; $i<$end; $i++) {
                 $formattedNumber = str_pad($i,$nbDigit,'0',STR_PAD_LEFT);
-                $file = stripslashes(trim(str_replace($pattern,$formattedNumber,$object['filePattern']),'/'));
+                $file = stripslashes(trim(str_replace($pattern,$formattedNumber,$object['filePattern']),'/^$'));
 
                 if($object['nbGroups'] > 0) {
                     $group = 1 + floor($i / $filePerGroup);
