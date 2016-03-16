@@ -231,3 +231,8 @@ html{
     margin-left: 10px;
     font-weight: bold;
 }
+
+xmp, pre {
+    font-size: 10px;
+    font-family: "Courier New", Courier, monospace;
+}

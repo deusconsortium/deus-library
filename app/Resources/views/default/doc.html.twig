@@ -8,16 +8,16 @@
 
     <div class="deuvo_doc">
 
-
-        <p>DEUVO stands for Dark Energy Universe Virtual Observatory and allows to download DEUSS data through a
-            VO-oriented database (following IVOA standards). DEUSS is the Dark Energy Universe Simulation Series which
-            is part of DEUS (Dark Energy Universe Simulation) Consortium.</p>
-
-        <p>This readme will detail the different steps to extract your datas.</p>
-
         <a name="summary"><h2>Summary</h2></a>
 
         <ol>
+            <li>
+                <a href="#A2">Select type of geometry</a>
+                <ul>
+                    <li><a href="#A21">Comoving Space</a></li>
+                    <li><a href="#A22">Redshift Space</a></li>
+                </ul>
+            </li>
             <li>
                 <a href="#A1">Select your simulation</a>
                 <ul>
@@ -26,29 +26,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#A2">Select type of object</a>
-                <ul>
-                    <li><a href="#A21">Fields</a></li>
-                    <li><a href="#A22">Halos</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#A3">Select properties and range of interest</a>
-                <ul>
-                    <li><a href="#A31">Available properties</a></li>
-                    <li><a href="#A32">How to filter</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#A4">Download properties</a>
-                <ul>
-                    <li><a href="#A41">How to download</a></li>
-                    <li><a href="#A42">Text format</a></li>
-                    <li><a href="#A43">VOTable format</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#A5">Extract particles</a>
+                <a href="#A5">File Formats</a>
                 <ul>
                     <li><a href="#A51">How to extract</a></li>
                     <li><a href="#A52">Format of the files</a></li>
@@ -60,13 +38,38 @@
             </li>
         </ol>
 
-        <a name="A1"><h2>1. Select your simulation</h2></a>
+        <a name="A2"><h2>1. Select type of geometry</h2></a>
+
+        <a name="A21"><h3>Comoving Space</h3></a>
+
+        <p><strong>What is it?</strong> Particles sorted per region</p>
+        <p><strong>What are the particles properties?</strong> Position (distribution), velocity (kinematics), identity
+            (follow particles from one snapshot to another)</p>
+        <p><strong>What are the redshifts available?</strong> More than 10 per simulations:
+            a=astart,0.025,0.05,0.1,0.15...,0.95,1</p>
+        <p><strong>What are the scales probed?</strong> From 3. kpc to 10. Gpc</p>
+        <p><strong>What could I do with it?</strong> Any field oriented analysis: correlation, distribution, filament,
+            weak lensing, BAO...</p>
+
+        <a name="A22"><h3>Redshift Space</h3></a>
+
+        <p><strong>What is it?</strong> Particles sorted on a per halo basis</p>
+        <p><strong>What are the particles properties?</strong> Position, velocity, identity ...</p>
+        <p><strong>What are the redshifts available?</strong> More than 10 per simulations:
+            a=astart,0.025,0.05,0.1,0.15...,0.95,1</p>
+        <p><strong>What are the halos probed?</strong> From 2.5 .10^10 to 1. 10^16 Msun, from 100 to 3 millions
+            particles.</p>
+        <p><strong>What could I do with it?</strong> Any halo oriented analysis: cluster counts, strong lensing,
+            statistics on macroscopic properties and internal profiles...</p>
+
+        <p class="summary"><a href="#summary">Back to summary &#x25B2;</a></p>
+
+        <a name="A1"><h2>2. Select your simulation</h2></a>
 
         <a name="A11"><h3>What are the simulations</h3></a>
 
-        <p>Today, only DEUSS simulations are available through DEUVO. Data from other DEUS Consortium projects as <a
-                    href="http://www.deus-consortium.org/a-propos/dark-energy-universe-simulation-full-universe-run/">DEUS
-                FUR</a> and DEUS PUR, will be available later on.</p>
+        <p>Today, only DEUSS and DEUS FUR simulations are available through the web. Data from other DEUS Consortium projects as
+                    DEUS PUR, will be available later on.</p>
 
         <p>DEUSS consists in 5 N-body simulations with 2048^3 particles, 9 simulations with 1024^3 particles (plus some
             512^3 and 256^3 particles simulations for tests or convergence studies). We have explored three cosmologies:
@@ -89,216 +92,13 @@
         <p class="img"><img src="{{ asset("images/doc/select.jpg") }}" alt="table"/><br/>Screenshot for simulation selection
         </p>
 
-        <p>When selected, the parameter settings appears below as well as the available snapshots. The default snapshot
-            is the smallest Z, usually Z=0. You can also select another one according to your needs.</p>
+        <p>When selected, the parameter settings appears below as well as the available snapshots. </p>
         <p class="img"><img src="{{ asset("images/doc/snapshot.jpg") }}" alt="snapshot"/><br/>Screenshot for snapshot
             selection</p>
 
         <p class="summary"><a href="#summary">Back to summary &#x25B2;</a></p>
 
-        <a name="A2"><h2>2. Select type of object</h2></a>
-
-        <p class="img"><img src="{{ asset("images/doc/type.jpg") }}" alt="snapshot"/><br/>Screenshot for type of object
-            selection</p>
-
-        <a name="A21"><h3>Fields</h3></a>
-
-        <p><strong>What is it?</strong> Particles sorted per region</p>
-        <p><strong>What are the particles properties?</strong> Position (distribution), velocity (kinematics), identity
-            (follow particles from one snapshot to another)</p>
-        <p><strong>What are the redshifts available?</strong> More than 10 per simulations:
-            a=astart,0.025,0.05,0.1,0.15...,0.95,1</p>
-        <p><strong>What are the scales probed?</strong> From 3. kpc to 10. Gpc</p>
-        <p><strong>What could I do with it?</strong> Any field oriented analysis: correlation, distribution, filament,
-            weak lensing, BAO...</p>
-
-        <a name="A22"><h3>Halos</h3></a>
-
-        <p><strong>What is it?</strong> Particles sorted on a per halo basis</p>
-        <p><strong>What are the particles properties?</strong> Position, velocity, identity ...</p>
-        <p><strong>What are the redshifts available?</strong> More than 10 per simulations:
-            a=astart,0.025,0.05,0.1,0.15...,0.95,1</p>
-        <p><strong>What are the halos probed?</strong> From 2.5 .10^10 to 1. 10^16 Msun, from 100 to 3 millions
-            particles.</p>
-        <p><strong>What could I do with it?</strong> Any halo oriented analysis: cluster counts, strong lensing,
-            statistics on macroscopic properties and internal profiles...</p>
-
-        <p class="summary"><a href="#summary">Back to summary &#x25B2;</a></p>
-
-
-        <a name="A3"><h2>3. Select properties and range of interest</h2></a>
-
-        <a name="A31"><h3>Available properties</h3></a>
-
-        <h4>Fields</h4>
-
-        <ul>
-            <li><strong>idp:</strong> id of fields in the simulation box</li>
-            <li><strong>npart:</strong> number of particles in detected fields in the simulation box</li>
-            <li><strong>x (Mpc/h (comoving)): </strong>x-position of fields in the simulation box</li>
-            <li><strong>y (Mpc/h (comoving)): </strong>y-position of fields in the simulation box</li>
-            <li><strong>z (Mpc/h (comoving)): </strong>z-position of fields in the simulation box</li>
-            <li><strong>x_min (Mpc/h (comoving)): </strong>Min x-position of fields in the simulation box</li>
-            <li><strong>x_max (Mpc/h (comoving)): </strong>Max x-position of fields in the simulation box</li>
-            <li><strong>y_min (Mpc/h (comoving)): </strong>Min y-position of fields in the simulation box</li>
-            <li><strong>y_max (Mpc/h (comoving)): </strong>Max y-position of fields in the simulation box</li>
-            <li><strong>z_min (Mpc/h (comoving)): </strong> Min z-position of fields in the simulation box</li>
-            <li><strong>z_max (Mpc/h (comoving)): </strong>Max z-position of fields in the simulation box</li>
-            <li><strong>delta:</strong> Overdensity of the field: delta=rho/
-                <rho>-1
-            </li>
-        </ul>
-
-        <h4>Halos</h4>
-
-        <ul>
-            <li><strong>idp:</strong> id of detected halos in the simulation box</li>
-            <li><strong>npart:</strong> number of particles in detected halos in the simulation box</li>
-            <li><strong>x (Mpc/h (comoving)): </strong> x-position in detected halos in the simulation box</li>
-            <li><strong>y (Mpc/h (comoving)): </strong> y-position in detected halos in the simulation box</li>
-            <li><strong>z (Mpc/h (comoving)): </strong> z-position in detected halos in the simulation box</li>
-            <li><strong>vx (km/s (physical)): </strong> vx-speed in detected halos in the simulation box</li>
-            <li><strong>vy (km/s (physical)): </strong> vy-speed in detected halos in the simulation box</li>
-            <li><strong>vz (km/s (physical)): </strong> vz-speed in detected halos in the simulation box</li>
-            <li><strong>mass (Msun/h): </strong> mass of detected halos in the simulation box</li>
-            <li><strong>rmax: </strong> distance of the farthest particles in detected halos divided by r178</li>
-            <li><strong>vmax: </strong> speed of the fastest particle in detected halo divided by v178</li>
-            <li><strong>r178 (Mpc/h (comoving)): </strong> radius corresponding to FOF mass if one assumes an
-                overdensity delta=178 in detected halos in the simulation box
-            </li>
-            <li><strong>v178 (km/s (physical)): </strong> velocity corresponding to FOF mass if one assumes an
-                overdensity delta=178 in detected halos in the simulation box
-            </li>
-            <li><strong>sigmapos: </strong> standard deviation of particles position in detected halos divided by r178
-            </li>
-            <li><strong>sigmavel: </strong> standard deviation of particles velocity in detected halos divided by v178
-            </li>
-            <li><strong>jtot: </strong> total angular momentum lambda_prime (normalized to sqrt(2)*M*R178*V178) in
-                detected halos
-            </li>
-        </ul>
-
-        <a name="A32"><h3>How to filter</h3></a>
-
-        <p>To filter among the objects, you can enter a "lower than" and "greater than" filter for each of the available
-            properties.
-            To help you, the min/mean/max values are shown on the right.</p>
-
-        <p>To select the properties you want to see, you should check the "view in result" box for each of them. x,y,z
-            and npart are always in the results.</p>
-
-        <p class="img"><img src="{{ asset("images/doc/properties.jpg") }}" alt="snapshot"/><br/>Screenshot for properties</p>
-
-        <p>You should them press the "Search matching object" button, and you'll receive the list.</p>
-
-        <p class="img"><img src="{{ asset("images/doc/simple_result.jpg") }}" alt="snapshot"/><br/>Screenshot for result</p>
-
-        <p>Results are shown by page of 50 results.</p>
-
-        <p class="summary"><a href="#summary">Back to summary &#x25B2;</a></p>
-
-        <a name="A4"><h2>4. Download properties</h2></a>
-
-        <a name="A41"><h3>How to download</h3></a>
-
-        <p>To download the properties of the selected objects, just click on the button for the format you want.</p>
-
-        <p>However, be careful that only the properties with the "View in result" checked will be downloaded.</p>
-
-        <p class="img"><img src="{{ asset("images/doc/download.jpg") }}" alt="snapshot"/><br/>Screenshot for properties</p>
-
-        <a name="A42"><h3>Text format</h3></a>
-
-        <p>Text format is a basic ASCII text format with fix column size. Each column is 18 character wide.</p>
-
-        <p>Example:</p>
-
-        <pre>
-        x                 y                 z                 npart             mass
-        60.25786          283.9211          63.06452          5483.0            7.099936E14
-        188.2782          80.72556          33.48819          5188.0            6.71794E14
-        (...)
-        503.5614          177.2386          33.16534          5704.0            7.386109E14
-        </pre>
-
-
-        <a name="A43"><h3>VOTable format</h3></a>
-
-        <p>VOTable is an XML file format validating using the VOTable schema <a
-                    href="http://www.ivoa.net/xml/VOTable/VOTable-1.2.xsd">http://www.ivoa.net/xml/VOTable/VOTable-1.2.xsd</a>
-            created by the <a href="http://www.ivoa.net">International Virtual Observatory Alliance (IVOA)</a>.</p>
-        <p>This format can be used with softwares such as Topcat : <a href="http://www.star.bris.ac.uk/~mbt/topcat/">http://www.star.bris.ac.uk/~mbt/topcat/</a>
-        </p>
-
-        <p>More informations can be found on the IVOA web site : <a href="http://www.ivoa.net">http://www.ivoa.net</a>
-        </p>
-
-        <p>Example:</p>
-
-            <pre><xmp>
-                    <?xml version="1.0"?>
-                    <VOTABLE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                             xsi:noNamespaceSchemaLocation=" xmlns:http://www.ivoa.net/xml/VOTable-1.2.xsd"
-                             version="1.2">
-                        <RESOURCE name="Result set (halos)" type="results">
-                            <TABLE name="results">
-                                <DESCRIPTION>List of properties of objects matchings user criterions</DESCRIPTION>
-                                <FIELD name="x" datatype="double"/>
-                                <FIELD name="y" datatype="double"/>
-                                <FIELD name="z" datatype="double"/>
-                                <FIELD name="npart" datatype="double"/>
-                                <FIELD name="mass" datatype="double"/>
-                                <DATA>
-                                    <TABLEDATA>
-                                        <TR>
-                                            <TD>60.25786</TD>
-                                            <TD>283.9211</TD>
-                                            <TD>63.06452</TD>
-                                            <TD>5483.0</TD>
-                                            <TD>7.099936E14</TD>
-                                        </TR>
-                                        <TR>
-                                            <TD>188.2782</TD>
-                                            <TD>80.72556</TD>
-                                            <TD>33.48819</TD>
-                                            <TD>5188.0</TD>
-                                            <TD>6.71794E14</TD>
-                                        </TR>
-                                        (...)
-                                        <TR>
-                                            <TD>503.5614</TD>
-                                            <TD>177.2386</TD>
-                                            <TD>33.16534</TD>
-                                            <TD>5704.0</TD>
-                                            <TD>7.386109E14</TD>
-                                        </TR>
-                                    </TABLEDATA>
-                                </DATA>
-                            </TABLE>
-                        </RESOURCE>
-                    </VOTABLE>
-                </xmp></pre>
-
-        <p class="summary"><a href="#summary">Back to summary &#x25B2;</a></p>
-
-        <a name="A5"><h2>5. Extract particles</h2></a>
-
-        <a name="A51"><h3>How to extract</h3></a>
-
-        <p>To extract the particles of the objects, first select the objects you need by checking them.</p>
-
-        <p class="img"><img src="{{ asset("images/doc/result.jpg") }}" alt="snapshot"/><br/>Screenshot for result</p>
-
-        <p>Then click on the "Extract select objects" button.</p>
-
-        <p class="img"><img src="{{ asset("images/doc/extract.jpg") }}" alt="snapshot"/><br/>Screenshot for extracting</p>
-
-        <p>You then be asked for your e-mail address. This address won't be stored and is only used to send you the
-            notification when the files have bin processed by our server.</p>
-
-        <p class="img"><img src="{{ asset("images/doc/popup.jpg") }}" alt="snapshot"/><br/>Screenshot for popup</p>
-
-        <p>A few minutes later, you will receive an email with a download link available 5 days to get your files.</p>
+        <a name="A5"><h2>3. File Formats</h2></a>
 
         <a name="A52"><h3>Format of the files</h3></a>
 
@@ -389,34 +189,34 @@
 
         <p>Program sample to read a field file:</p>
 
-                <pre><xmp> program read_field
-                        implicit none
+                <pre><xmp>program read_field
+    implicit none
 
-                        integer::mynpart,procID,Ucub,j,i
-                        real::xmin,xmax,ymin,ymax,zmin,zmax
-                        integer(8),allocatable::id(:)
-                        real,allocatable::x(:,:),v(:,:)
+    integer::mynpart,procID,Ucub,j,i
+    real::xmin,xmax,ymin,ymax,zmin,zmax
+    integer(8),allocatable::id(:)
+    real,allocatable::x(:,:),v(:,:)
 
-                        Open(Unit=Ucub,file='/path_for_data/fof_boxlen648_n1024_lcdmw5_cube_00001',Form='Unformatted')
-                        ! read number of particles integer*4
-                        Read(Ucub) mynpart
-                        ! read ID of the FoF process assigned to this cube integer*4
-                        Read(Ucub) procID
-                        ! read boundary values of the cube real*4
-                        Read(Ucub) xmin,xmax,ymin,ymax,zmin,zmax
-                        ! allocate memory
-                        allocate(id(1:mynpart))
-                        allocate(x(1:3,1:mynpart))
-                        allocate(v(1:3,1:mynpart))
-                        ! read positions real*4
-                        Read(Ucub) ((x(j,i),j=1,3),i=1,mynpart)
-                        ! read velocities real*4
-                        Read(Ucub) ((v(j,i),j=1,3),i=1,mynpart)
-                        ! read id's integer*8 WARNING
-                        Read(Ucub) (id(i),i=1,mynpart)
-                        Close(Ucub)
+    Open(Unit=Ucub,file='/path_for_data/fof_boxlen648_n1024_lcdmw5_cube_00001',Form='Unformatted')
+    ! read number of particles integer*4
+    Read(Ucub) mynpart
+    ! read ID of the FoF process assigned to this cube integer*4
+    Read(Ucub) procID
+    ! read boundary values of the cube real*4
+    Read(Ucub) xmin,xmax,ymin,ymax,zmin,zmax
+    ! allocate memory
+    allocate(id(1:mynpart))
+    allocate(x(1:3,1:mynpart))
+    allocate(v(1:3,1:mynpart))
+    ! read positions real*4
+    Read(Ucub) ((x(j,i),j=1,3),i=1,mynpart)
+    ! read velocities real*4
+    Read(Ucub) ((v(j,i),j=1,3),i=1,mynpart)
+    ! read id's integer*8 WARNING
+    Read(Ucub) (id(i),i=1,mynpart)
+    Close(Ucub)
 
-                        end program read_field
+end program read_field
                     </xmp></pre>
 
         <h4>Read Halo file in Fortran</h4>
@@ -424,34 +224,34 @@
         <p>Program sample to read the 1st halo of a halo file:</p>
 
             <pre><xmp> program read_struct
-                    implicit none
+    implicit none
 
-                    integer::mynpart,procID,Ucub,j,i,mynhalos
-                    real::xmin,xmax,ymin,ymax,zmin,zmax
-                    integer(8),allocatable::id(:)
-                    real,allocatable::x(:,:),v(:,:)
+    integer::mynpart,procID,Ucub,j,i,mynhalos
+    real::xmin,xmax,ymin,ymax,zmin,zmax
+    integer(8),allocatable::id(:)
+    real,allocatable::x(:,:),v(:,:)
 
-                    Open(Unit=Ucub,file='/home/jpasdeloup/sample/fof_boxlen648_n1024_lcdmw5_strct_00001',Form='Unformatted')
-                    ! read number of halos integer*4
-                    Read(Ucub) mynhalos
+    Open(Unit=Ucub,file='/path_for_data/fof_boxlen648_n1024_lcdmw5_strct_00001',Form='Unformatted')
+    ! read number of halos integer*4
+    Read(Ucub) mynhalos
 
-                    ! READ 1st HALO ONLY
-                    ! read number of particles integer*4
-                    Read(Ucub) mynpart
-                    ! allocate memory
-                    allocate(id(1:mynpart))
-                    allocate(x(1:3,1:mynpart))
-                    allocate(v(1:3,1:mynpart))
-                    ! read positions real*4
-                    Read(Ucub) ((x(j,i),j=1,3),i=1,mynpart)
-                    ! read velocities real*4
-                    Read(Ucub) ((v(j,i),j=1,3),i=1,mynpart)
-                    ! read id's integer*8 WARNING
-                    Read(Ucub) (id(i),i=1,mynpart)
+    ! READ 1st HALO ONLY
+    ! read number of particles integer*4
+    Read(Ucub) mynpart
+    ! allocate memory
+    allocate(id(1:mynpart))
+    allocate(x(1:3,1:mynpart))
+    allocate(v(1:3,1:mynpart))
+    ! read positions real*4
+    Read(Ucub) ((x(j,i),j=1,3),i=1,mynpart)
+    ! read velocities real*4
+    Read(Ucub) ((v(j,i),j=1,3),i=1,mynpart)
+    ! read id's integer*8 WARNING
+    Read(Ucub) (id(i),i=1,mynpart)
 
-                    Close(Ucub)
+    Close(Ucub)
 
-                    end program read_struct
+end program read_struct
                 </xmp></pre>
 
         <a name="A54"><h3>How to read the file using C++</h3></a>
@@ -464,52 +264,52 @@
 
         <p>Program sample to read the a field file and display some infos about it:</p>
 
-            <pre><xmp> #include "FOFReaderLib/FOFReaderLib.h"
+            <pre><xmp>#include "FOFReaderLib/FOFReaderLib.h"
 
-                    int main(void)
-                    {
-                    // Simple line to read a Field. The second arg is to ask reading the ids (default is false)
-                    FOFCube cube("/path_for_data/fof_boxlen648_n1024_lcdmw5_cube_00001", true);
+int main(void)
+{
+    // Simple line to read a Field. The second arg is to ask reading the ids (default is false)
+    FOFCube cube("/path_for_data/fof_boxlen648_n1024_lcdmw5_cube_00001", true);
 
-                    // Show some details about the read cube as an example of usage
-                    std::cout
-                    << cube.npart() << " particles, "
-                    << "area: (" << cube.minX() << "," << cube.minY() << "," << cube.minZ() << ") "
-                    << "to (" << cube.maxX() << "," << cube.maxY() << "," << cube.maxZ() << ")"
-                    << std::endl;
-                    for(int j=0; j< std::min(10,cube.npart()); j++) {
-                    std::cout << " Particle " << j << ": "
-                    << "id: " << cube.id(j) << " "
-                    << "position: (" << cube.posX(j) << "," << cube.posY(j) << "," << cube.posZ(j) << ") "
-                    << "velocity (" << cube.velX(j) << "," << cube.velY(j) << "," << cube.velZ(j) << ")"
-                    << std::endl;
-                    }
-                    return 0;
-                    }
+    // Show some details about the read cube as an example of usage
+    std::cout
+    << cube.npart() << " particles, "
+    << "area: (" << cube.minX() << "," << cube.minY() << "," << cube.minZ() << ") "
+    << "to (" << cube.maxX() << "," << cube.maxY() << "," << cube.maxZ() << ")"
+    << std::endl;
+    for(int j=0; j< std::min(10,cube.npart()); j++) {
+    std::cout << " Particle " << j << ": "
+    << "id: " << cube.id(j) << " "
+    << "position: (" << cube.posX(j) << "," << cube.posY(j) << "," << cube.posZ(j) << ") "
+    << "velocity (" << cube.velX(j) << "," << cube.velY(j) << "," << cube.velZ(j) << ")"
+    << std::endl;
+    }
+return 0;
+}
                 </xmp></pre>
 
         <h4>Read Halo file in C++</h4>
 
         <p>Program sample to read the a halo file and display some infos about each halo:</p>
 
-            <pre><xmp> #include "FOFReaderLib/FOFReaderLib.h"
+            <pre><xmp>#include "FOFReaderLib/FOFReaderLib.h"
 
-                    int main(void)
-                    {
-                    // Simple line to read a list of halos
-                    FOFStrct strct("/path_for_data/fof_boxlen648_n1024_lcdmw5_strct_00001");
+int main(void)
+{
+    // Simple line to read a list of halos
+    FOFStrct strct("/path_for_data/fof_boxlen648_n1024_lcdmw5_strct_00001");
 
-                    // List the halos from the file as an example of usage
-                    for(int i=0; i
-                    <strct.nHalos
-                    (); i++) {
-                    std::cout << "HALO " << i << ": "
-                    << strct.halos(i)->npart() << " particles"
-                    << std::endl;
-                    }
-                    return 0;
-                    }
-                </xmp></pre>
+    // List the halos from the file as an example of usage
+    for(int i=0; i
+    <strct.nHalos
+    (); i++) {
+    std::cout << "HALO " << i << ": "
+    << strct.halos(i)->npart() << " particles"
+    << std::endl;
+    }
+    return 0;
+}
+</xmp></pre>
 
         <a name="A55"><h3>How to read the file using other languages</h3></a>
 
@@ -522,21 +322,20 @@
             integer giving the number of bytes wrotten.</p>
 
         <p>For instance, to read the (x,y,z) coordinates of 200 particles, you will find 200*3*4 + 2*4 = 2408 bytes:</p>
-
-            <pre>
-            4 bytes: head record marker, integer = 2400
-            4 bytes: x coordinate of the 1st particle, float
-            4 bytes: y coordinate of the 1st particle, float
-            4 bytes: z coordinate of the 1st particle, float
-            4 bytes: x coordinate of the 2nd particle, float
-            4 bytes: y coordinate of the 2nd particle, float
-            4 bytes: z coordinate of the 2nd particle, float
-            (...)
-            4 bytes: x coordinate of the 200th particle, float
-            4 bytes: y coordinate of the 200th particle, float
-            4 bytes: z coordinate of the 200th particle, float
-            4 bytes: foot record marker, integer = 2400
-            </pre>
+            <pre><xmp>
+    4 bytes: head record marker, integer = 2400
+    4 bytes: x coordinate of the 1st particle, float
+    4 bytes: y coordinate of the 1st particle, float
+    4 bytes: z coordinate of the 1st particle, float
+    4 bytes: x coordinate of the 2nd particle, float
+    4 bytes: y coordinate of the 2nd particle, float
+    4 bytes: z coordinate of the 2nd particle, float
+    (...)
+    4 bytes: x coordinate of the 200th particle, float
+    4 bytes: y coordinate of the 200th particle, float
+    4 bytes: z coordinate of the 200th particle, float
+    4 bytes: foot record marker, integer = 2400
+                </xmp></pre>
 
         <h4>Read Big Endian Files</h4>
 
