@@ -43,6 +43,12 @@ jQuery(document).ready(function() {
                     jQuery(".startObject").click();
                 }
             });
+        jQuery.ajax({
+                url: jQuery(this).attr('data-properties')
+            })
+            .done(function(data){
+                jQuery("#geometry_properties").html(data);
+            });
         jQuery(".startSnap")
             .css('font-weight', 'normal')
             .css('text-decoration', 'none');

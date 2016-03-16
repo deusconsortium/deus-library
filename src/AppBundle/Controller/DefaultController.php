@@ -154,4 +154,18 @@ class DefaultController extends Controller
             'cosmologies' => $SimulationRepository->getDistinctCosmologies($snapshots)
         ));
     }
+
+    /**
+     * @Route("/geometry_properties/{id}", name="geometry_properties")
+     */
+    public function geometrySettingsAction(Request $request, $id)
+    {
+        $SimulationRepository = $this->get("simulation_repository");
+        $geometry = $SimulationRepository->getGeometry($id);
+
+        return $this->render('default/geometry_properties.html.twig', array(
+            'geometry' => $geometry,
+            'properties' => json_decode($geometry['properties'], true)
+        ));
+    }
 }

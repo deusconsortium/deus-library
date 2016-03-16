@@ -5,12 +5,12 @@
             <div>
                 <h4>Available snapshots</h4>
                 {% for id,Z in snapshots %}
-                    <a class="startSnap" href="{{ url("objects", {"id": id}) }}">Z={{ Z }}</a><br/>
+                    <a class="startSnap" href="{{ url("objects", {"id": id}) }}" data-properties="{{ url("geometry_properties", {"id": id}) }}">Z={{ Z }}</a><br/>
                 {% endfor %}
             </div>
         </td>
         <td style="vertical-align:top;text-align:left">
-            <h4>Simulation parameter settings</h4>
+            <h4>Simulation properties</h4>
             <table width="350px" class="parameterSettingTable" id="simulationParameterSettings">
                 <colgroup>
                     <col width="190px">
@@ -27,6 +27,9 @@
                 {% endfor %}
                 </tbody>
             </table>
+            <div id="geometry_properties">
+
+            </div>
         </td>
     </tr>
 </table>

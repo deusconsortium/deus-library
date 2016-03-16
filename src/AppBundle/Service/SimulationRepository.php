@@ -78,6 +78,25 @@ class SimulationRepository
     /**
      * @return array
      */
+    public function getGeometry($id)
+    {
+        $res = $this->con->fetchAll(
+            "SELECT
+                  *
+            FROM
+                 Geometry g
+                 INNER JOIN GeometryType gt ON gt.id = g.GeometryType_id
+            WHERE
+                 g.id = :id
+                 "
+        , ["id" => $id]);
+
+        return $res[0];
+    }
+
+    /**
+     * @return array
+     */
     public function getCones()
     {
         $res = [];

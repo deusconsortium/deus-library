@@ -1,0 +1,19 @@
+{% if properties|length > 0 %}
+<h4>{{ geometry.name }} properties</h4>
+<table width="350px" class="parameterSettingTable" id="simulationParameterSettings">
+    <colgroup>
+        <col width="190px">
+        <col width="100px">
+    </colgroup>
+    <tbody>
+    {% for label,value in properties %}
+        <tr {{ cycle(['style="background:none repeat scroll 0 0 #ddf1ff"', ''], loop.index0)|raw }}>
+            <td>
+                <div>{{ label }}</div>
+            </td>
+            <td>{{ value }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endif %}
