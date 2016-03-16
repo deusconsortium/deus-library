@@ -15,7 +15,8 @@
                  <tr>
                      <th>Box length</th>
                      {% for cosmo in cosmologies %}
-                         <th>{{ cosmo }}</th>
+                         <th title="{% for label,value in cosmo_settings[cosmo] %}{{ label }}={{ value }}{% if not loop.last %},{% endif %}
+{% endfor %}">{{ cosmo }}</th>
                      {% endfor %}
                  </tr>
                  {% for boxlen,snapshot in snapshots %}

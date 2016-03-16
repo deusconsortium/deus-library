@@ -47,7 +47,8 @@ class DefaultController extends Controller
 
         return $this->render('default/snapshot.html.twig', array(
             'snapshots' => $snapshots,
-            'cosmologies' => $SimulationRepository->getDistinctCosmologies($snapshots)
+            'cosmologies' => $SimulationRepository->getDistinctCosmologies($snapshots),
+            'cosmo_settings' => $SimulationRepository->getCosmologies()
         ));
     }
 
@@ -151,7 +152,8 @@ class DefaultController extends Controller
 
         return $this->render('default/cone.html.twig', array(
             'snapshots' => $snapshots,
-            'cosmologies' => $SimulationRepository->getDistinctCosmologies($snapshots)
+            'cosmologies' => $SimulationRepository->getDistinctCosmologies($snapshots),
+            'cosmo_settings' => $SimulationRepository->getCosmologies()
         ));
     }
 

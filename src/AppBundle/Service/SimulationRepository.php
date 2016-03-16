@@ -78,6 +78,27 @@ class SimulationRepository
     /**
      * @return array
      */
+    public function getCosmologies()
+    {
+        $res = [];
+        $rows = $this->con->fetchAll(
+            "SELECT
+                  *
+            FROM
+                 Cosmology c
+                 "
+        );
+
+        foreach($rows as $oneRow) {
+            $res[$oneRow['name']] = json_decode($oneRow['properties'], true);
+        }
+
+        return $res;
+    }
+
+    /**
+     * @return array
+     */
     public function getGeometry($id)
     {
         $res = $this->con->fetchAll(
