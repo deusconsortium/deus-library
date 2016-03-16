@@ -19,7 +19,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#A1">Select your simulation</a>
+                <a href="#A1">Select your simulation and files</a>
                 <ul>
                     <li><a href="#A11">What are the simulations</a></li>
                     <li><a href="#A12">How to select one</a></li>
@@ -28,7 +28,6 @@
             <li>
                 <a href="#A5">File Formats</a>
                 <ul>
-                    <li><a href="#A51">How to extract</a></li>
                     <li><a href="#A52">Format of the files</a></li>
                     <li><a href="#A53">How to read the file using Fortran</a></li>
                     <li><a href="#A54">How to read the file using C++</a></li>
@@ -39,6 +38,9 @@
         </ol>
 
         <a name="A2"><h2>1. Select type of geometry</h2></a>
+
+        <p class="img"><img src="{{ asset("images/doc/deus-library_index.png") }}" alt="Screenshot for geometry selection" style="width: 380px"/><br/>Screenshot for geometry selection</p>
+
 
         <a name="A21"><h3>Comoving Space</h3></a>
 
@@ -89,14 +91,24 @@
         <p>The simulations are sorted in a table by box length and cosmology. In each cell, you'll find the available
             resolution for the combination.
             Just click on the one you want to select it.</p>
-        <p class="img"><img src="{{ asset("images/doc/select.jpg") }}" alt="table"/><br/>Screenshot for simulation selection
-        </p>
+        <p class="img"><img src="{{ asset("images/doc/deus-library_1_simulation.png") }}" alt="simulation" style="width: 480px;"/><br/>Screenshot for simulation selection</p>
 
-        <p>When selected, the parameter settings appears below as well as the available snapshots. </p>
-        <p class="img"><img src="{{ asset("images/doc/snapshot.jpg") }}" alt="snapshot"/><br/>Screenshot for snapshot
+        <p>When selected, the simulation properties appears below as well as the available snapshots. </p>
+        <p class="img"><img src="{{ asset("images/doc/deus-library_2_snapshot.png") }}" alt="snapshot" style="width: 480px;"/><br/>Screenshot for snapshot
             selection</p>
 
+        <p>When a snapshot is selected, his own properties appear below the simulation ones as well as the available objects and their formats.</p>
+        <p class="img"><img src="{{ asset("images/doc/deus-library_3_file.png") }}" alt="file" style="width: 480px;"/><br/>Screenshot for object
+            selection</p>
+
+        <p>When an object is select, the corresponding files appear to be downloaded.</p>
+        <p class="img"><img src="{{ asset("images/doc/deus-library_4_download.png") }}" alt="download" style="width: 480px;"/><br/>Screenshot for download
+            selection</p>
+
+        <p>It is both possible to download the file list as a text file to use with wget, or to download files individually</p>
+
         <p class="summary"><a href="#summary">Back to summary &#x25B2;</a></p>
+
 
         <a name="A5"><h2>3. File Formats</h2></a>
 
