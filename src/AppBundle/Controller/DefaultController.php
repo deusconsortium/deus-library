@@ -5,6 +5,8 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 class DefaultController extends Controller
 {
@@ -105,8 +107,38 @@ class DefaultController extends Controller
         return $this->render('default/files.html.twig', array(
             'files' => $files,
             'page' => $page,
-            'object' => $object
+            'object' => $object,
+            'id' => $id
         ));
+    }
+
+    /**
+     * @Route("/filelist/{id}", name="file_list")
+     */
+    public function fileListAction(Request $request, $id)
+    {
+        $page =$request->get('page',1);
+
+        $SimulationRepository = $this->get("simulation_repository");
+        list($object, $files) = $SimulationRepository->getObjectFiles($id, null);
+
+        $baseUrl = $request->getSchemeAndHttpHost().$request->getBasePath().'/';
+        $list = "";
+        foreach($files as $oneFile) {
+            $list .= $baseUrl.$oneFile["url"]."\n";
+        }
+
+        $response = new Response($list);
+
+        $d = $response->headers->makeDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            "deus_file_list_$id.txt"
+        );
+
+        $response->headers->set('Content-Disposition', $d);
+
+        return $response;
+
     }
 
     /**

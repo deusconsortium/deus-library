@@ -191,6 +191,9 @@ class SimulationRepository
 
     static public function formatZ($Z)
     {
+        if('?' == $Z) {
+            return $Z;
+        }
         $Z = (float) $Z;
         if($Z < 1.0) {
             $Z = number_format($Z, 2);
@@ -236,6 +239,11 @@ class SimulationRepository
         return $res;
     }
 
+    /**
+     * @param $id
+     * @param int $page page number, set to null for no pagination
+     * @return array
+     */
     public function getObjectFiles($id, $page = 1)
     {
         $res = [];
@@ -262,8 +270,14 @@ class SimulationRepository
 
         $object = $rows[0];
 
-        $start  = SimulationRepository::PER_PAGE * ($page - 1);
-        $end = min(SimulationRepository::PER_PAGE * $page, $object['nbFiles']);
+        if(is_null($page)) {
+            $start  = 0;
+            $end = $object['nbFiles'];
+        }
+        else {
+            $start  = SimulationRepository::PER_PAGE * ($page - 1);
+            $end = min(SimulationRepository::PER_PAGE * $page, $object['nbFiles']);
+        }
 
         $object['more'] = $object['nbFiles'] > $end;
 

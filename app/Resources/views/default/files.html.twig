@@ -1,5 +1,16 @@
 {% if page == 1 %}
 <h3>4. Download</h3>
+
+<h4>Download the file list</h4>
+    <a class="startFile" href="{{ url('file_list', {id: id}) }}">deus_file_list_{{ id }}.txt</a><br/>
+    Using wget, you can use this list to download all the file with the command:
+    <blockquote>wget -i deus_file_list_{{ id }}.txt</blockquote>
+    wget is preinstalled on most Linux distributions, for MacOS X you can find instructions here:
+    <br/>
+    <a href="https://coolestguidesontheplanet.com/install-and-configure-wget-on-os-x/">https://coolestguidesontheplanet.com/install-and-configure-wget-on-os-x/</a>
+
+<h4>Download files individually</h4>
+
 {% endif %}
 {% for file in files %}
     {% if file.url %}
