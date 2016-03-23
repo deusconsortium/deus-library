@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <title>{% block title %}DEUS Library{% endblock %}</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css"
+          href="http://www.deus-consortium.org/wp-content/themes/complexity/layout/css/reset.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="http://www.deus-consortium.org/wp-content/themes/complexity/style.css?ts=<?=time();?>"/>
+
+    <!-- CSS for specific color variation -->
+    <link rel="stylesheet" type="text/css"
+          href="http://www.deus-consortium.org/wp-content/themes/complexity/layout/css/style7.css?ts=<?=time();?>"/>
+
+    <link type="text/css" href="{{ asset("css/deus-library.css") }}" rel="Stylesheet"/>
+    <link type="text/css" href="{{ asset("css/deus-library-cosmo.css") }}" rel="Stylesheet"/>
+
+    <!-- Wordpress Header stuff -->
+    <script type='text/javascript'
+            src='http://www.deus-consortium.org/wp-includes/js/jquery/jquery.js?ver=1.11.2'></script>
+    <script type='text/javascript'
+            src='http://www.deus-consortium.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+
+
+    <script type="text/javascript"
+            src="{{ asset("js/deus-library.js") }}"></script>
+
+    <!-- Custom CSS -->
+    <style type="text/css">
+        #logo {
+            background-image: url('http://deus.obspm.fr/wp-content/uploads/2010/09/logo.png');
+        }
+
+        .widget li {
+            background: none;
+        }
+
+    </style>
+
+    <!-- Comments -->
+
+    <!-- Meta Tags (for js) -->
+    <meta name="template_url" content="http://www.deus-consortium.org/wp-content/themes/complexity"/>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- HEADER (start) -->
+
+    <div id="header">
+
+        <h1><a href="http://www.deus-consortium.org/" title="DEUS consortium &#8211; Dark Energy Universe Simulations"
+               id="logo" class="ie6">DEUS consortium &#8211; Dark Energy Universe Simulations</a></h1>
+
+        <!-- Header Area Widgets (start) -->
+
+
+        <!-- Header Area Widgets (end) -->
+
+        <div id="title">
+
+        </div>
+
+        <div style="display:block; position:absolute; top:27px; right:0px;z-index:15;">
+
+        </div>
+
+        <div class="clear"></div>
+
+    </div><!-- #header (end) -->
+
+    <!-- HEADER (end) -->
+
+    <div id="main">
+
+        <!-- PRIMARY CONTENT (start) -->
+
+        <div id="primary" class="ie6">
+
+            <div id="sidebar">
+
+
+
+                <div class="widget"><h2>Navigation</h2>
+                    <ul id="submenu">
+                        <li><a href="{{ url("homepage") }}" title="Presentation" {% if app.request.attributes.get('_route') == 'homepage' %}class="current_page_item"{% endif %}>Data presentation</a></li>
+                        <li><a href="{{ url("cone") }}" title="Redshift Space: cone of light build from snapshots" {% if app.request.attributes.get('_route') == 'cone' %}class="current_page_item"{% endif %}>Redshift Space</a></li>
+                        <li><a href="{{ url("snapshot") }}" title="Comoving Space: snaphots of the simulation by Z" {% if app.request.attributes.get('_route') == 'snapshot' %}class="current_page_item"{% endif %}>Comoving Space</a></li>
+                        <li><a href="{{ url("documentation") }}" title="Documentation" {% if app.request.attributes.get('_route') == 'documentation' %}class="current_page_item"{% endif %}>Documentation</a></li>
+                    </ul>
+
+                    <a href="http://luth.obspm.fr"><img src="{{ asset("images/logos.png") }}" alt="Observatoire de Paris, CNRS, Paris 7" style="margin-top: 40px"/></a>
+                </div>
+            </div><!-- #sidebar (end) -->
+            <div id="content">
+                <div class="pad">
+
+                    <h2 class="page-title">{{ block('title') }}</h2>
+
+                    <div id="waiting" style="display: none">
+                        <div style="text-align: center; width: 100%; padding: 30px;">
+                            <img src="{{ asset("images/loading.gif") }}" alt="loading"/>
+                        </div>
+                    </div>
+                    {% block content %}
+                    {% endblock %}
+
+                </div><!-- .pad (end) -->
+            </div><!-- #content (end) -->
+
+
+            <div class="clear"></div>
+
+        </div><!-- #primary (end) -->
+
+</div><!-- #wrapper (end) -->
+
+</body>
+</html>

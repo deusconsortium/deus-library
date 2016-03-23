@@ -1,0 +1,28 @@
+body {
+    background: white;
+}
+
+#header {
+    background-color: black;
+}
+
+#copyright {
+    background: none;
+    border-bottom: 1px none black;
+}
+
+
+#footer-top {
+    background-color: #ffffff;
+    background-image: none;
+}
+
+#title {
+    display:block;
+    position:absolute;
+    top:27px;
+    left:339px;
+    z-index:10;
+    color: white;
+    font-size: 24px;
+}
