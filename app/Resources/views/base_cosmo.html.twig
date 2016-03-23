@@ -57,7 +57,7 @@
 
     <div id="header">
 
-        <h1><a href="http://www.deus-consortium.org/" title="DEUS consortium &#8211; Dark Energy Universe Simulations"
+        <h1><a href="{{ url('homepage') }}" title="DEUS consortium &#8211; Dark Energy Universe Simulations"
                id="logo" class="ie6">DEUS consortium &#8211; Dark Energy Universe Simulations</a></h1>
 
         <!-- Header Area Widgets (start) -->
@@ -90,7 +90,7 @@
 
 
                 <div class="widget"><h2>Navigation</h2>
-                    <ul id="submenu">
+                    <ul id="submenu">de
                         <li><a href="{{ url("homepage") }}" title="Presentation" {% if app.request.attributes.get('_route') == 'homepage' %}class="current_page_item"{% endif %}>Data presentation</a></li>
                         <li><a href="{{ url("cone") }}" title="Redshift Space: cone of light build from snapshots" {% if app.request.attributes.get('_route') == 'cone' %}class="current_page_item"{% endif %}>Redshift Space</a></li>
                         <li><a href="{{ url("snapshot") }}" title="Comoving Space: snaphots of the simulation by Z" {% if app.request.attributes.get('_route') == 'snapshot' %}class="current_page_item"{% endif %}>Comoving Space</a></li>
