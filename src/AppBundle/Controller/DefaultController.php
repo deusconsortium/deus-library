@@ -119,7 +119,7 @@ class DefaultController extends Controller
     public function fileListAction(Request $request, $id)
     {
         $SimulationRepository = $this->get("simulation_repository");
-        list($object, $files) = $SimulationRepository->getObjectFiles($id, null);
+        list(, $files) = $SimulationRepository->getObjectFiles($id, null);
 
         $baseUrl = $request->getSchemeAndHttpHost().$request->getBasePath().'/';
         $list = "";

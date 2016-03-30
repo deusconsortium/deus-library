@@ -8,3 +8,5 @@ rules:
     threshold: 20
   web.apache_config:
     enabled: false
+  composer.warning:
+    enabled: false

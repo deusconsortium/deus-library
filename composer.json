@@ -1,7 +1,7 @@
 {
     "name": "jpasdeloup/deus.library",
     "description": "DEUS Database public interface",
-    "license": "proprietary",
+    "license": "MIT",
     "type": "project",
     "autoload": {
         "psr-4": {
