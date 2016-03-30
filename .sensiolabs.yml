@@ -2,3 +2,9 @@ rules:
   twig.template_too_complex:
     enabled: true
     max_depth: 7
+  twig.template_too_long:
+    enabled: true
+    max_length: 200
+    threshold: 20
+  web.apache_config:
+    enabled: false

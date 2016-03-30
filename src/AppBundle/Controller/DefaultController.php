@@ -118,8 +118,6 @@ class DefaultController extends Controller
      */
     public function fileListAction(Request $request, $id)
     {
-        $page =$request->get('page',1);
-
         $SimulationRepository = $this->get("simulation_repository");
         list($object, $files) = $SimulationRepository->getObjectFiles($id, null);
 
@@ -139,7 +137,6 @@ class DefaultController extends Controller
         $response->headers->set('Content-Disposition', $d);
 
         return $response;
-
     }
 
     /**
