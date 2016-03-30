@@ -1,5 +1,6 @@
 {
     "name": "jpasdeloup/deus.library",
+    "description": "DEUS Database public interface",
     "license": "proprietary",
     "type": "project",
     "autoload": {

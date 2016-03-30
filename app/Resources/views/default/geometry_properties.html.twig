@@ -7,7 +7,7 @@
     </colgroup>
     <tbody>
     {% for label,value in properties %}
-        <tr {{ cycle(['style="background:none repeat scroll 0 0 #ddf1ff"', ''], loop.index0)|raw }}>
+        <tr style="{{ cycle(['background:none repeat scroll 0 0 #ddf1ff', ''], loop.index0) }}">
             <td>
                 <div>{{ label }}</div>
             </td>
