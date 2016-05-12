@@ -15,8 +15,8 @@
                  <tr>
                      <th>Box length</th>
                      {% for cosmo in cosmologies %}
-                         <th title="{% for label,value in cosmo_settings[cosmo] %}{{ label }}={{ value }}{% if not loop.last %},{% endif %}&nbsp; 
-{% endfor %}">{{ cosmo }}</th>
+                         <th title="{% for label,value in cosmo_settings[cosmo].properties %}{{ label }}={{ value }}{% if not loop.last %},{% endif %}&nbsp;
+{% endfor %}">{% if cosmo_settings[cosmo].url %}<a href="{{ cosmo_settings[cosmo].url }}">{{ cosmo }}</a>{% else %}{{ cosmo }}{% endif %}</th>
                      {% endfor %}
                  </tr>
                  {% for boxlen,snapshot in snapshots %}
