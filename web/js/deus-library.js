@@ -9,7 +9,7 @@ jQuery(document).ready(function() {
 
     var waiting = jQuery("#waiting").html();
 
-    jQuery(".startSimu").on("click", function(e){
+    jQuery(".startSimu").live("click", function(e){
         e.preventDefault();
         jQuery("#snapshots").html(waiting);
         jQuery(".startSimu")
@@ -24,6 +24,7 @@ jQuery(document).ready(function() {
         })
         .done(function(data){
             jQuery("#snapshots").html(data);
+            location.hash = "#snapshots";
             if(jQuery(".startSnap").length == 1) {
                 jQuery(".startSnap").click();
             }
@@ -39,6 +40,7 @@ jQuery(document).ready(function() {
             })
             .done(function(data){
                 jQuery("#objects").html(data);
+                location.hash = "#objects";
                 if(jQuery(".startObject").length == 1) {
                     jQuery(".startObject").click();
                 }
@@ -65,6 +67,7 @@ jQuery(document).ready(function() {
             })
             .done(function(data){
                 jQuery("#files").html(data);
+                location.hash = "#files";
             });
         jQuery(".startObject")
             .css('font-weight', 'normal')

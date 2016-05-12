@@ -1,4 +1,4 @@
-<h3>3. Click to select your files</h3>
+<h3><a name="objects">3. Click to select your files</a></h3>
 {% for id,object in objects %}
     <a class="startObject" href="{{ url("files", {"id":id}) }}">{{ object.type }}</a> ({{ object.nbFiles }} file(s), format {{ object.format }}, total {{ object.formattedSize }})<br/>
 {% endfor %}

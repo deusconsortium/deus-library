@@ -354,6 +354,7 @@ class SimulationRepository
         }
         elseif($object['filePattern'] && 1 == $object['nbFiles']) {
             $file = $object['filePattern'];
+            $file = stripslashes(trim($file,'/^$'));
             $res[] = [
                 'url' => $path.$object['localPath'].'/'.$file,
                 'name' => $file

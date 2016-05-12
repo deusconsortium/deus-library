@@ -195,36 +195,12 @@ html{
 	color:#474747;
 }
 
-#header #logo {
-    background-position: 20px 0;
-    background-repeat: no-repeat;
-    border: medium none;
-    display: block;
-    height: 80px;
-    margin: 10px 10px 0 0;
-    text-indent: -9999px;
-    width: 300px;    
-}
-
 #header h1 {
     margin: 5px 0;
 }
 
-#content h3 {
+h3 {
     margin-top: 25px;
-}
-
-
-#header .titre {
-    position: absolute;
-    right: 0px;
-    top: 27px;
-    color: white;
-    font-size: 35px;
-}
-
-#logo {    
-    background-image: url("http://deus.obspm.fr/wp-content/uploads/2010/09/logo.png");
 }
 
 #more_files a {
@@ -235,4 +211,23 @@ html{
 xmp, pre {
     font-size: 10px;
     font-family: "Courier New", Courier, monospace;
+}
+
+a {
+    color: #3399cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    font-family: Arial,Helevtica,Verdana,san-serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 23px;
+    text-align: center;
+    margin:0;
+    padding:0;
 }
