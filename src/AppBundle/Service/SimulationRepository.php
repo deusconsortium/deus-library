@@ -90,7 +90,8 @@ class SimulationRepository
         );
 
         foreach($rows as $oneRow) {
-            $res[$oneRow['name']] = json_decode($oneRow['properties'], true);
+            $res[$oneRow['name']]['properties'] = json_decode($oneRow['properties'], true);
+            $res[$oneRow['name']]['url'] = $oneRow['url'];
         }
 
         return $res;
