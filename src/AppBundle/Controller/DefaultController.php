@@ -109,12 +109,13 @@ class DefaultController extends Controller
             'files' => $files,
             'page' => $page,
             'object' => $object,
-            'id' => $id
+            'id' => $id,
+            'root_url' => $this->getParameter("download_root_url")
         ));
     }
 
     /**
-     * @Route("/filelist/{id}", name="file_list")
+     * @Route("/filelist/deus_file_list_{id}.txt", name="file_list")
      */
     public function fileListAction(Request $request, $id)
     {

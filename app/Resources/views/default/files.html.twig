@@ -14,7 +14,7 @@
 {% endif %}
 {% for file in files %}
     {% if file.url %}
-        <a class="startFile" href="{{ file.url }}">{{ file.name }}</a>
+        <a class="startFile" href="{{ root_url }}{{ file.url }}">{{ file.name }}</a>
     {% else %}
         {{ file.name }}
     {% endif %}

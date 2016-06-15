@@ -17,3 +17,6 @@ parameters:
 
     # Template:  deus-consortium | cosmo
     template: cosmo
+
+    download_root_url: http://www.deus-consortium.org/deus-library/
+
